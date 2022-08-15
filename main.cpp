@@ -40,7 +40,7 @@ No * arvorePorNome = NULL ;
 
 void Menu();
 Info Cadastra_Funcionario();
-//void insere(Info Info.cpf, No *funcionario):
+void insere(Info *Info, No *funcionario);
 
  
 int main() {
@@ -49,6 +49,7 @@ int main() {
   SetConsoleOutputCP(CPAGE_UTF8);
   int op;
   Info fun;
+
   
 
   do{
@@ -61,7 +62,7 @@ int main() {
 
       case 1:
         fun = Cadastra_Funcionario();
-        //insere(fun.cpf, &fun);
+        insere(&fun, &arvorePorCPF);
         
         break;
       case 2:
@@ -120,7 +121,7 @@ Info Cadastra_Funcionario(){
     cin >> fun.cargo;
     cout << "Telefone[15]: ";
     cin >> fun.telefone;
-    
+
     cout << "\nData de nascimento" <<endl;
     cout << "dia: ";
     cin >> fun.data_nascimento.dia;
@@ -146,28 +147,28 @@ Info Cadastra_Funcionario(){
   return fun;
 }
 
-/*int insere(Info Info.cpf, No *funcionario)
+int insere(Info *fun, No *funcionario)
 {
     No *novo = new No;
-
-    novo.info = ;
+    
+    novo->info = fun ;
     novo->dir = NULL;
     novo->esq = NULL;
 
-    if (raiz == NULL)
+    if (arvorePorCPF == NULL)
     {
-        raiz = novo;
+        arvorePorCPF = novo;
         return 1;
     }
 
-    No *atual = raiz;
+    No *atual = arvorePorCPF;
     No *pai = NULL;
 
     while (atual != NULL)
     {
         pai = atual;
 
-        if (num < atual->chave)
+        if (fun->cpf < atual->info->cpf)
         {
             atual = atual->esq;
         }
@@ -177,7 +178,7 @@ Info Cadastra_Funcionario(){
         }
     }
 
-    if (num < pai->chave)
+    if (fun->cpf < pai->info->cpf)
     {
         pai->esq = novo;
     }
@@ -187,5 +188,5 @@ Info Cadastra_Funcionario(){
     }
 
     return 1;
-}*/
+}
 
