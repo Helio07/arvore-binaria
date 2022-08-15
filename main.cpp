@@ -40,7 +40,7 @@ No * arvorePorNome = NULL ;
 
 void Menu();
 Info Cadastra_Funcionario();
-void insere():
+//void insere(Info Info.cpf, No *funcionario):
 
  
 int main() {
@@ -61,7 +61,7 @@ int main() {
 
       case 1:
         fun = Cadastra_Funcionario();
-        insere();
+        //insere(fun.cpf, &fun);
         
         break;
       case 2:
@@ -120,15 +120,37 @@ Info Cadastra_Funcionario(){
     cin >> fun.cargo;
     cout << "Telefone[15]: ";
     cin >> fun.telefone;
+    
+    cout << "\nData de nascimento" <<endl;
+    cout << "dia: ";
+    cin >> fun.data_nascimento.dia;
+    cout << "Mes: ";
+    cin >> fun.data_nascimento.mes;
+    cout << "Ano: ";
+    cin >> fun.data_nascimento.ano;
+
+    cout << "\nENDEREÇO\n";
+    cout << "logradouro: ";
+    cin >> fun.endereco.logradouro;
+    cout << "numero: ";
+    cin >> fun.endereco.numero;
+    cout << "bairro: ";
+    cin >> fun.endereco.bairro;
+    cout << "cidade: ";
+    cin >> fun.endereco.cidade;
+    cout << "estado: ";
+    cin >> fun.endereco.estado;
+    cout << "cep: ";
+    cin >> fun.endereco.cep;
 
   return fun;
 }
 
-int insere(int num)
+/*int insere(Info Info.cpf, No *funcionario)
 {
     No *novo = new No;
 
-    novo->chave = num;
+    novo.info = ;
     novo->dir = NULL;
     novo->esq = NULL;
 
@@ -165,5 +187,5 @@ int insere(int num)
     }
 
     return 1;
-}
+}*/
 
